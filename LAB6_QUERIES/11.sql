@@ -1,0 +1,7 @@
+SELECT	p1.SUBJECT [ÄÈÑÖÈÏËÈÍÀ],
+		p1.NOTE [ÎÖÅÍÊÀ], 
+		(SELECT COUNT(*) FROM PROGRESS p2 where p1.SUBJECT = p2.SUBJECT
+		and p2.NOTE=p1.NOTE) [ÊÎË-ÂÎ ÑÒÓÄÅÍÒÎÂ]
+FROM PROGRESS p1
+GROUP BY p1.NOTE, p1.SUBJECT, p1.IDSTUDENT
+HAVING NOTE > 7 and NOTE < 10
